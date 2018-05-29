@@ -10,34 +10,28 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MonthValidator = function (_Validator) {
-    _inherits(MonthValidator, _Validator);
+var YearValidator = function (_Validator) {
+    _inherits(YearValidator, _Validator);
 
-    function MonthValidator() {
-        _classCallCheck(this, MonthValidator);
+    function YearValidator() {
+        _classCallCheck(this, YearValidator);
 
-        return _possibleConstructorReturn(this, (MonthValidator.__proto__ || Object.getPrototypeOf(MonthValidator)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (YearValidator.__proto__ || Object.getPrototypeOf(YearValidator)).apply(this, arguments));
     }
 
-    _createClass(MonthValidator, [{
+    _createClass(YearValidator, [{
         key: "validate",
         value: function validate() {
-            _get(MonthValidator.prototype.__proto__ || Object.getPrototypeOf(MonthValidator.prototype), "validate", this).call(this);
+            _get(YearValidator.prototype.__proto__ || Object.getPrototypeOf(YearValidator.prototype), "validate", this).call(this);
 
             if (this.$field.value.length != 2) {
-                this.errors.push("Please use the MM format");
-            }
-            if (this.$field.value < 1 || this.$field.value > 12) {
-                this.errors.push("Your month must be between 1 and 12");
-            }
-            if (!this.$field.value.match(/^\d+$/)) {
-                this.errors.push("Please use numbers");
+                this.errors.push("Please use the YY format");
             }
 
             this.showErrors();
         }
     }]);
 
-    return MonthValidator;
+    return YearValidator;
 }(Validator);
-//# sourceMappingURL=MonthValidator.js.map
+//# sourceMappingURL=YearValidator.js.map

@@ -10,25 +10,26 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MonthValidator = function (_Validator) {
-    _inherits(MonthValidator, _Validator);
+var DayValidator = function (_Validator) {
+    _inherits(DayValidator, _Validator);
 
-    function MonthValidator() {
-        _classCallCheck(this, MonthValidator);
+    function DayValidator() {
+        _classCallCheck(this, DayValidator);
 
-        return _possibleConstructorReturn(this, (MonthValidator.__proto__ || Object.getPrototypeOf(MonthValidator)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (DayValidator.__proto__ || Object.getPrototypeOf(DayValidator)).apply(this, arguments));
     }
 
-    _createClass(MonthValidator, [{
+    _createClass(DayValidator, [{
         key: "validate",
         value: function validate() {
-            _get(MonthValidator.prototype.__proto__ || Object.getPrototypeOf(MonthValidator.prototype), "validate", this).call(this);
+            _get(DayValidator.prototype.__proto__ || Object.getPrototypeOf(DayValidator.prototype), "validate", this).call(this);
 
             if (this.$field.value.length != 2) {
-                this.errors.push("Please use the MM format");
+                this.errors.push("Please use the DD format");
             }
-            if (this.$field.value < 1 || this.$field.value > 12) {
-                this.errors.push("Your month must be between 1 and 12");
+
+            if (this.$field.value < 1 || this.$field.value > 31) {
+                this.errors.push("Your day must be between 1 and 31");
             }
             if (!this.$field.value.match(/^\d+$/)) {
                 this.errors.push("Please use numbers");
@@ -38,6 +39,6 @@ var MonthValidator = function (_Validator) {
         }
     }]);
 
-    return MonthValidator;
+    return DayValidator;
 }(Validator);
-//# sourceMappingURL=MonthValidator.js.map
+//# sourceMappingURL=DayValidator.js.map

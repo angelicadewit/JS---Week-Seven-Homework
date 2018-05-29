@@ -3,7 +3,7 @@
 var validatorFirst = new Validator('[name=first-name]');
 var validatorLast = new Validator('[name=last-name]');
 var validatorEmail = new EmailValidator('[name=email]');
-// let validatorBirthday = new BirthdayValidator('[name=day]')
+var validatorDay = new DayValidator('[name=day]');
 var validatorMonth = new MonthValidator('[name=month]');
-// let validatorBirthday = new BirthdayValidator('[name=year]')
+var validatorYear = new YearValidator('[name=year]');
 //# sourceMappingURL=main.js.map
