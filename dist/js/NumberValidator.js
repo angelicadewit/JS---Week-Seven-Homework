@@ -10,28 +10,28 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var lengthValidator = function (_Validator) {
-    _inherits(lengthValidator, _Validator);
+var NumberValidator = function (_Validator) {
+    _inherits(NumberValidator, _Validator);
 
-    function lengthValidator() {
-        _classCallCheck(this, lengthValidator);
+    function NumberValidator() {
+        _classCallCheck(this, NumberValidator);
 
-        return _possibleConstructorReturn(this, (lengthValidator.__proto__ || Object.getPrototypeOf(lengthValidator)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (NumberValidator.__proto__ || Object.getPrototypeOf(NumberValidator)).apply(this, arguments));
     }
 
-    _createClass(lengthValidator, [{
+    _createClass(NumberValidator, [{
         key: "validate",
         value: function validate() {
-            _get(lengthValidator.prototype.__proto__ || Object.getPrototypeOf(lengthValidator.prototype), "validate", this).call(this);
+            _get(NumberValidator.prototype.__proto__ || Object.getPrototypeOf(NumberValidator.prototype), "validate", this).call(this);
 
-            if (this.$field.value.length != 2) {
-                this.errors.push("Please use a 2-digit format");
+            if (!this.$field.value.match(/^\d+$/)) {
+                this.errors.push("Please use numbers");
             }
 
             this.showErrors();
         }
     }]);
 
-    return lengthValidator;
+    return NumberValidator;
 }(Validator);
-//# sourceMappingURL=YearValidator.js.map
+//# sourceMappingURL=NumberValidator.js.map

@@ -10,28 +10,29 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var lengthValidator = function (_Validator) {
-    _inherits(lengthValidator, _Validator);
+var DateLengthValidator = function (_Validator) {
+    _inherits(DateLengthValidator, _Validator);
 
-    function lengthValidator() {
-        _classCallCheck(this, lengthValidator);
+    function DateLengthValidator() {
+        _classCallCheck(this, DateLengthValidator);
 
-        return _possibleConstructorReturn(this, (lengthValidator.__proto__ || Object.getPrototypeOf(lengthValidator)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (DateLengthValidator.__proto__ || Object.getPrototypeOf(DateLengthValidator)).apply(this, arguments));
     }
 
-    _createClass(lengthValidator, [{
+    _createClass(DateLengthValidator, [{
         key: "validate",
         value: function validate() {
-            _get(lengthValidator.prototype.__proto__ || Object.getPrototypeOf(lengthValidator.prototype), "validate", this).call(this);
+            _get(DateLengthValidator.prototype.__proto__ || Object.getPrototypeOf(DateLengthValidator.prototype), "createErrorContainer", this).call(this);
 
             if (this.$field.value.length != 2) {
                 this.errors.push("Please use a 2-digit format");
+                console.log(this.showErrors);
             }
 
             this.showErrors();
         }
     }]);
 
-    return lengthValidator;
+    return DateLengthValidator;
 }(Validator);
-//# sourceMappingURL=YearValidator.js.map
+//# sourceMappingURL=DateLengthValidator.js.map

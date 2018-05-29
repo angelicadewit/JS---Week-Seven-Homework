@@ -23,19 +23,27 @@ class Validator{
         this.$field.addEventListener(`blur`, this.validate.bind(this))
     }
 
+    createErrorContainer(){
+        this.$errorContainer = document.createElement("div");
+        this.$errorContainer.classList.add('error-message');
+        this.$field.parentElement.appendChild (this.$errorContainer)
+    }
+    
+
     validate(){
        console.log(this.$field.value)
 
        this.errors = [];
 
         if (!this.$field.value){
-            this.errors.push(`You must fill out the field`)
-        }
+            this.errors.push(`You must fill out the ` + this.$field.name + ` field`)
+        } 
 
         //this is a hack
         // putting a settimeout will run after everything 
         setTimeout(this.showErrors.bind(this), 0)
     }
+
 
     showErrors(){
         if (this.errors.length) {

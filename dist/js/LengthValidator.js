@@ -10,28 +10,29 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var lengthValidator = function (_Validator) {
-    _inherits(lengthValidator, _Validator);
+var LengthValidator = function (_Validator) {
+    _inherits(LengthValidator, _Validator);
 
-    function lengthValidator() {
-        _classCallCheck(this, lengthValidator);
+    function LengthValidator() {
+        _classCallCheck(this, LengthValidator);
 
-        return _possibleConstructorReturn(this, (lengthValidator.__proto__ || Object.getPrototypeOf(lengthValidator)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (LengthValidator.__proto__ || Object.getPrototypeOf(LengthValidator)).apply(this, arguments));
     }
 
-    _createClass(lengthValidator, [{
+    _createClass(LengthValidator, [{
         key: "validate",
         value: function validate() {
-            _get(lengthValidator.prototype.__proto__ || Object.getPrototypeOf(lengthValidator.prototype), "validate", this).call(this);
+            _get(LengthValidator.prototype.__proto__ || Object.getPrototypeOf(LengthValidator.prototype), "createErrorContainer", this).call(this);
 
             if (this.$field.value.length != 2) {
                 this.errors.push("Please use a 2-digit format");
+                console.log(this.showErrors);
             }
 
             this.showErrors();
         }
     }]);
 
-    return lengthValidator;
+    return LengthValidator;
 }(Validator);
-//# sourceMappingURL=YearValidator.js.map
+//# sourceMappingURL=LengthValidator.js.map

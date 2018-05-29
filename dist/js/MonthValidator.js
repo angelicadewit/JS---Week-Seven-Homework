@@ -22,16 +22,10 @@ var MonthValidator = function (_Validator) {
     _createClass(MonthValidator, [{
         key: "validate",
         value: function validate() {
-            _get(MonthValidator.prototype.__proto__ || Object.getPrototypeOf(MonthValidator.prototype), "validate", this).call(this);
+            _get(MonthValidator.prototype.__proto__ || Object.getPrototypeOf(MonthValidator.prototype), "createErrorContainer", this).call(this);
 
-            if (this.$field.value.length != 2) {
-                this.errors.push("Please use the MM format");
-            }
             if (this.$field.value < 1 || this.$field.value > 12) {
-                this.errors.push("Your month must be between 1 and 12");
-            }
-            if (!this.$field.value.match(/^\d+$/)) {
-                this.errors.push("Please use numbers");
+                this.errors.push("Your " + this.$field.name + " must be between 1 and 12");
             }
 
             this.showErrors();

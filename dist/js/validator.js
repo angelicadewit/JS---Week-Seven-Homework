@@ -31,6 +31,13 @@ var Validator = function () {
     }
 
     _createClass(Validator, [{
+        key: "createErrorContainer",
+        value: function createErrorContainer() {
+            this.$errorContainer = document.createElement("div");
+            this.$errorContainer.classList.add('error-message');
+            this.$field.parentElement.appendChild(this.$errorContainer);
+        }
+    }, {
         key: "validate",
         value: function validate() {
             console.log(this.$field.value);
@@ -38,7 +45,7 @@ var Validator = function () {
             this.errors = [];
 
             if (!this.$field.value) {
-                this.errors.push("You must fill out the field");
+                this.errors.push("You must fill out the " + this.$field.name + " field");
             }
 
             //this is a hack
