@@ -10,28 +10,29 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MonthValidator = function (_Validator) {
-    _inherits(MonthValidator, _Validator);
+var MixedCaseValidator = function (_Validator) {
+    _inherits(MixedCaseValidator, _Validator);
 
-    function MonthValidator() {
-        _classCallCheck(this, MonthValidator);
+    function MixedCaseValidator() {
+        _classCallCheck(this, MixedCaseValidator);
 
-        return _possibleConstructorReturn(this, (MonthValidator.__proto__ || Object.getPrototypeOf(MonthValidator)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (MixedCaseValidator.__proto__ || Object.getPrototypeOf(MixedCaseValidator)).apply(this, arguments));
     }
 
-    _createClass(MonthValidator, [{
+    _createClass(MixedCaseValidator, [{
         key: "validate",
         value: function validate() {
-            _get(MonthValidator.prototype.__proto__ || Object.getPrototypeOf(MonthValidator.prototype), "validate", this).call(this);
+            _get(MixedCaseValidator.prototype.__proto__ || Object.getPrototypeOf(MixedCaseValidator.prototype), "createErrorContainer", this).call(this);
 
-            if (this.$field.value < 1 || this.$field.value > 12) {
-                this.errors.push("Your " + this.$field.name + " must be between 1 and 12");
+            if (!this.$field.value) {
+                this.errors.push("Needs to contain one of these characters: !@#$%^&*\"");
+                console.log(this.showErrors);
             }
 
             this.showErrors();
         }
     }]);
 
-    return MonthValidator;
+    return MixedCaseValidator;
 }(Validator);
-//# sourceMappingURL=MonthValidator.js.map
+//# sourceMappingURL=MixedCaseValidator.js.map

@@ -7,12 +7,15 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
 		<link rel="stylesheet" href="dist/css/main.css">
 		
 	</head>
 	<body>
 		
 		<div class="content">
+			<h1>Lonely Hearts Club</h1>
+			<h2>Sign Up Now</h2>
 			<form>
 				<label>
 					Name
@@ -31,8 +34,8 @@
 				</label>
 				<label>
 					Password:
-					<input class="text" type="password" name="day" placeholder="Password">
-					<input class="text" type="password" name="month" placeholder="Verify Password">
+					<input type="text" name="password" placeholder="Password">
+					<input type="text" name="verify-password" placeholder="Verify Password">
 				</label>
 			</form>
 		</div>
@@ -41,8 +44,10 @@
 		<script src="dist/js/EmailValidator.js"></script>
 		<script src="dist/js/MonthValidator.js"></script>
 		<script src="dist/js/DayValidator.js"></script>
-		<script src="dist/js/LengthValidator.js"></script>
+		<script src="dist/js/DateLengthValidator.js"></script>
 		<script src="dist/js/NumberValidator.js"></script>
+		<script src="dist/js/SpecialCharactersValidator.js"></script>
+		<!-- <script src="dist/js/MixedCaseCharactersValidator.js"></script> -->
 		<script src="dist/js/main.js"></script>
 
 	</body>

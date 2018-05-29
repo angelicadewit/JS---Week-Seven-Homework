@@ -4,6 +4,7 @@ class NumberValidator extends Validator {
 
             if (!this.$field.value.match(/^\d+$/)) {
                 this.errors.push(`Please use numbers`)
+                this.$field.style.borderColor = `red`
             }
     
             this.showErrors();

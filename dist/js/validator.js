@@ -31,21 +31,18 @@ var Validator = function () {
     }
 
     _createClass(Validator, [{
-        key: "createErrorContainer",
-        value: function createErrorContainer() {
-            this.$errorContainer = document.createElement("div");
-            this.$errorContainer.classList.add('error-message');
-            this.$field.parentElement.appendChild(this.$errorContainer);
-        }
-    }, {
         key: "validate",
         value: function validate() {
             console.log(this.$field.value);
 
             this.errors = [];
 
+            this.$field.classList.toggle("not-valid", true);
             if (!this.$field.value) {
+                var $p = document.createElement("p");
                 this.errors.push("You must fill out the " + this.$field.name + " field");
+            } else {
+                this.errors.pop("You must fill out the " + this.$field.name + " field");
             }
 
             //this is a hack
@@ -58,12 +55,19 @@ var Validator = function () {
             var _this = this;
 
             if (this.errors.length) {
-                this.$field.style.borderColor = "red";
                 this.$errorContainer.innerHTML = "";
                 this.errors.forEach(function (error) {
-                    _this.$errorContainer.innerHTML += "<p>" + error + "</p>";
+                    // this.$errorContainer.innerHTML += "<p>" + error + "</p>"
+                    var $p = document.createElement("p");
+                    $p.innerHTML += error;
+                    _this.$errorContainer.appendChild($p);
+                    _this.$field.removeAttribute("style");
+                    _this.$field.style.borderColor = "red";
+                    setTimeout(_this.showErrors.bind(_this), 0);
                 });
             } else {
+                // this.$field.classList.remove("not-valid")
+                this.$field.removeAttribute("style");
                 this.$field.style.borderColor = "green";
                 this.$errorContainer.innerHTML = "";
             }

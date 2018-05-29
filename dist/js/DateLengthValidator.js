@@ -22,11 +22,10 @@ var DateLengthValidator = function (_Validator) {
     _createClass(DateLengthValidator, [{
         key: "validate",
         value: function validate() {
-            _get(DateLengthValidator.prototype.__proto__ || Object.getPrototypeOf(DateLengthValidator.prototype), "createErrorContainer", this).call(this);
+            _get(DateLengthValidator.prototype.__proto__ || Object.getPrototypeOf(DateLengthValidator.prototype), "validate", this).call(this);
 
             if (this.$field.value.length != 2) {
                 this.errors.push("Please use a 2-digit format");
-                console.log(this.showErrors);
             }
 
             this.showErrors();

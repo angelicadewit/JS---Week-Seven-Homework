@@ -18,7 +18,8 @@ TABLE OF CONTENTS:
    License: none (public domain)
 */
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+h1,
+.content h2, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -73,18 +74,33 @@ table {
 }
 
 body {
-	background: #ccc;
-	font-family: sans-serif;
+	background: #e47ed3;
 }
 
 /* 2. Content ================================= */
-form {
-	font-size: 1.2em;
+.content {
+	border: 3px solid #b6139b;
+	background: #f3b4e8;
+	width: 90%;
+	margin: auto;
+}
+
+.content h1, .content h2 {
+	font-family: "alex brush";
+	font-size: 5em;
+	margin: 20px;
+	text-align: center;
+}
+
+.content h2 {
+	font-size: 2.5em;
 }
 
 form label {
 	display: block;
 	margin: 1em 0;
+	font-size: 1.5em;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 form label input {
@@ -95,6 +111,14 @@ form label input {
 
 form label input.small {
 	width: 100px;
+}
+
+.valid {
+	border: 2px solid green;
+}
+
+.not-valid {
+	border: 2px solid red;
 }
 
 /*# sourceMappingURL=main.css.map */

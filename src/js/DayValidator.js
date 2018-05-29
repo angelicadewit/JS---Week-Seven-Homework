@@ -1,6 +1,6 @@
 class DayValidator extends Validator {
         validate(){
-            super.createErrorContainer();
+            super.validate();
 
             if (this.$field.value < 1 || this.$field.value > 31){
                 this.errors.push(`Your ` + this.$field.name + ` must be between 1 and 31`)

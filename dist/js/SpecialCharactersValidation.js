@@ -24,8 +24,8 @@ var SpecialCharactersValidator = function (_Validator) {
         value: function validate() {
             _get(SpecialCharactersValidator.prototype.__proto__ || Object.getPrototypeOf(SpecialCharactersValidator.prototype), "createErrorContainer", this).call(this);
 
-            if (this.$field.value.length != 2) {
-                this.errors.push("Please use a 2-digit format");
+            if (!this.$field.value.contains("!@#$%^&*")) {
+                this.errors.push("Needs to contain one of these characters: !@#$%^&*");
                 console.log(this.showErrors);
             }
 

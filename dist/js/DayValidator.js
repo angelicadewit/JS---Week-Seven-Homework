@@ -22,7 +22,7 @@ var DayValidator = function (_Validator) {
     _createClass(DayValidator, [{
         key: "validate",
         value: function validate() {
-            _get(DayValidator.prototype.__proto__ || Object.getPrototypeOf(DayValidator.prototype), "createErrorContainer", this).call(this);
+            _get(DayValidator.prototype.__proto__ || Object.getPrototypeOf(DayValidator.prototype), "validate", this).call(this);
 
             if (this.$field.value < 1 || this.$field.value > 31) {
                 this.errors.push("Your " + this.$field.name + " must be between 1 and 31");
