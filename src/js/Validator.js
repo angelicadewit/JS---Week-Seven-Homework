@@ -6,6 +6,8 @@ class Validator{
             return false;
         }
 
+        this.$errorContainer = this.$field.parentElement.querySelector('.error-message');
+
         //make elements to show errors in
         this.$errorContainer = document.createElement("div");
         this.$errorContainer.classList.add('error-message');
@@ -35,8 +37,7 @@ class Validator{
         if (!this.$field.value){
             let $p = document.createElement("p")
             this.errors.push(`You must fill out the ` + this.$field.name + ` field`)
-        } else {
-            this.errors.pop(`You must fill out the ` + this.$field.name + ` field`)
+            this.$errorContainer.appendChild($p)
         }
 
         //this is a hack
@@ -55,13 +56,11 @@ class Validator{
                 this.$errorContainer.appendChild($p)
                 this.$field.removeAttribute("style")
                 this.$field.style.borderColor = `red`
-                setTimeout(this.showErrors.bind(this), 0)
             })
        } else {
             // this.$field.classList.remove("not-valid")
             this.$field.removeAttribute("style")
             this.$field.style.borderColor = `green`
-            this.$errorContainer.innerHTML = "";
        }
     }
 }

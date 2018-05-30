@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -10,9 +10,11 @@ var Validator = function () {
 
         this.$field = document.querySelector(selector);
         if (!this.$field) {
-            console.warn("couldn't find selector: ", selector);
+            console.warn('couldn\'t find selector: ', selector);
             return false;
         }
+
+        this.$errorContainer = this.$field.parentElement.querySelector('.error-message');
 
         //make elements to show errors in
         this.$errorContainer = document.createElement("div");
@@ -26,12 +28,12 @@ var Validator = function () {
         // but overrule its _this_ logic, and force its
         // _this_ to be the Validate class instance
 
-        this.$field.addEventListener("keyup", this.validate.bind(this));
-        this.$field.addEventListener("blur", this.validate.bind(this));
+        this.$field.addEventListener('keyup', this.validate.bind(this));
+        this.$field.addEventListener('blur', this.validate.bind(this));
     }
 
     _createClass(Validator, [{
-        key: "validate",
+        key: 'validate',
         value: function validate() {
             console.log(this.$field.value);
 
@@ -40,9 +42,8 @@ var Validator = function () {
             this.$field.classList.toggle("not-valid", true);
             if (!this.$field.value) {
                 var $p = document.createElement("p");
-                this.errors.push("You must fill out the " + this.$field.name + " field");
-            } else {
-                this.errors.pop("You must fill out the " + this.$field.name + " field");
+                this.errors.push('You must fill out the ' + this.$field.name + ' field');
+                this.$errorContainer.appendChild($p);
             }
 
             //this is a hack
@@ -50,7 +51,7 @@ var Validator = function () {
             setTimeout(this.showErrors.bind(this), 0);
         }
     }, {
-        key: "showErrors",
+        key: 'showErrors',
         value: function showErrors() {
             var _this = this;
 
@@ -62,14 +63,12 @@ var Validator = function () {
                     $p.innerHTML += error;
                     _this.$errorContainer.appendChild($p);
                     _this.$field.removeAttribute("style");
-                    _this.$field.style.borderColor = "red";
-                    setTimeout(_this.showErrors.bind(_this), 0);
+                    _this.$field.style.borderColor = 'red';
                 });
             } else {
                 // this.$field.classList.remove("not-valid")
                 this.$field.removeAttribute("style");
-                this.$field.style.borderColor = "green";
-                this.$errorContainer.innerHTML = "";
+                this.$field.style.borderColor = 'green';
             }
         }
     }]);
