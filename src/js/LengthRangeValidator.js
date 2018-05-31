@@ -1,4 +1,10 @@
-class MixedCaseValidator extends Validator {
+class LengthRangeValidator extends Validator {
+
+    constructor(selector, min, max){
+        super(selector);
+        this.min = min;
+        this.max = max;
+    }
     validate(){
         super.validate();
 

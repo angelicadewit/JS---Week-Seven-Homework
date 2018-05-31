@@ -1,17 +1,16 @@
 class MatchValidator extends Validator {
 
-    // constructor(selector, verifySelector){
-    //     super(selector);
-    //     this.$field.value = verifySelector;
-    // }
+    constructor(selector, verifySelector){
+        super(selector);
+        this.$verifySelector = document.querySelector(verifySelector);
+    }
     validate(){
         super.validate();
 
-
-        // if (this.$field.value === verifySelector.value){
-        //     this.errors.push(`Number must not be greater than ${this.max}`)
-        // }
-
-        this.showErrors();
+        if (this.$field.value !== this.$verifySelector.value){
+            this.errors.push(`Your Passwords Does Not Match`)
+            // console.log(this.showErrors)
+            console.log(this.$verifySelector.value)
+        }
     }
 }

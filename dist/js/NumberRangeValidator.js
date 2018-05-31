@@ -38,8 +38,6 @@ var NumberRangeValidator = function (_Validator) {
             if (numericValue < this.min) {
                 this.errors.push("Number must not be greater than " + this.min);
             }
-
-            this.showErrors();
         }
     }]);
 

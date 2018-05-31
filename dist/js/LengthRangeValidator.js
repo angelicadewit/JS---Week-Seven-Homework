@@ -10,31 +10,34 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MatchValidator = function (_Validator) {
-    _inherits(MatchValidator, _Validator);
+var LengthRangeValidator = function (_Validator) {
+    _inherits(LengthRangeValidator, _Validator);
 
-    function MatchValidator(selector, verifySelector) {
-        _classCallCheck(this, MatchValidator);
+    function LengthRangeValidator(selector, min, max) {
+        _classCallCheck(this, LengthRangeValidator);
 
-        var _this = _possibleConstructorReturn(this, (MatchValidator.__proto__ || Object.getPrototypeOf(MatchValidator)).call(this, selector));
+        var _this = _possibleConstructorReturn(this, (LengthRangeValidator.__proto__ || Object.getPrototypeOf(LengthRangeValidator)).call(this, selector));
 
-        _this.$verifySelector = document.querySelector(verifySelector);
+        _this.min = min;
+        _this.max = max;
         return _this;
     }
 
-    _createClass(MatchValidator, [{
+    _createClass(LengthRangeValidator, [{
         key: "validate",
         value: function validate() {
-            _get(MatchValidator.prototype.__proto__ || Object.getPrototypeOf(MatchValidator.prototype), "validate", this).call(this);
+            _get(LengthRangeValidator.prototype.__proto__ || Object.getPrototypeOf(LengthRangeValidator.prototype), "validate", this).call(this);
 
-            if (this.$field.value !== this.$verifySelector.value) {
-                this.errors.push("Your Passwords Does Not Match");
-                // console.log(this.showErrors)
-                console.log(this.$verifySelector.value);
+            if (this.$field.value.length > this.max) {
+                this.errors.push("Your " + this.$field.placeholder.toLowerCase() + (" cannot have more than " + this.max + " characters"));
+            }
+
+            if (this.$field.value.length < this.min) {
+                this.errors.push("Your " + this.$field.placeholder.toLowerCase() + (" must have at least " + this.min + " characters"));
             }
         }
     }]);
 
-    return MatchValidator;
+    return LengthRangeValidator;
 }(Validator);
-//# sourceMappingURL=MatchValidator.js.map
+//# sourceMappingURL=LengthRangeValidator.js.map

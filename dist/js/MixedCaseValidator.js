@@ -22,14 +22,15 @@ var MixedCaseValidator = function (_Validator) {
     _createClass(MixedCaseValidator, [{
         key: "validate",
         value: function validate() {
-            _get(MixedCaseValidator.prototype.__proto__ || Object.getPrototypeOf(MixedCaseValidator.prototype), "createErrorContainer", this).call(this);
+            _get(MixedCaseValidator.prototype.__proto__ || Object.getPrototypeOf(MixedCaseValidator.prototype), "validate", this).call(this);
 
-            if (!this.$field.value) {
-                this.errors.push("Needs to contain one of these characters: !@#$%^&*\"");
-                console.log(this.showErrors);
+            if (this.$field.value.length > this.max) {
+                this.errors.push("Your " + this.$field.placeholder.toLowerCase() + (" cannot have more than " + this.max + " characters"));
             }
 
-            this.showErrors();
+            if (this.$field.value.length < this.min) {
+                this.errors.push("Your " + this.$field.placeholder.toLowerCase() + (" must have at least " + this.min + " characters"));
+            }
         }
     }]);
 
