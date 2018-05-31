@@ -2,12 +2,11 @@ class MixedCaseValidator extends Validator {
     validate(){
         super.validate();
 
-        if (this.$field.value.length > this.max){
-            this.errors.push(`Your ` + this.$field.placeholder.toLowerCase() + ` cannot have more than ${this.max} characters`)
-        }
+        const letters = /^(?=.*[a-z])(?=.*[A-Z])/;
 
-        if (this.$field.value.length < this.min){
-            this.errors.push(`Your ` + this.$field.placeholder.toLowerCase() + ` must have at least ${this.min} characters`)
+        if (!this.$field.value.match(letters)){
+            this.errors.push(`Your ` + this.$field.placeholder.toLowerCase() + ` must contain both upper and lower case`)
         }
     }
 }
+

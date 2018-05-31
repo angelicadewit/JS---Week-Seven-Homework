@@ -1,13 +1,12 @@
 class SpecialCharactersValidator extends Validator {
-    validate(){
-        super.validate();
-
-
-    if (!this.$field.value.includes("!") || !this.$field.value.includes("@")|| !this.$field.value.includes("#")|| !this.$field.value.includes("$")|| !this.$field.value.includes("%"
-        || !this.$field.value.includes("^")|| !this.$field.value.includes("&") || !this.$field.value.includes("*"))){
-            this.errors.push(`Needs to contain a`)
+        validate(){
+            super.validate();
+    
+            const characters = /^(?=.*[!@#$%^&*])/
+    
+            if (!this.$field.value.match(characters)){
+            this.errors.push(`Your ` + this.$field.placeholder.toLowerCase() + ` must contain: !@#$%^&*`)
+            }
         }
-
-        this.showErrors();
     }
-}
+    

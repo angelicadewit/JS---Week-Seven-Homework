@@ -10,4 +10,6 @@ var validatorNumYY = new NumberRangeValidator('[name=year]', 1900, 1999);
 
 var validatorMatchPassword = new MatchValidator('[name=verify-password', '[name=password]');
 var validatorLengthPassword = new LengthRangeValidator('[name=password]', 4, 5);
+var validatorMixedCasePassword = new MixedCaseValidator('[name=password]');
+var validatorSpecialCharactersPassword = new SpecialCharactersValidator('[name=password]');
 //# sourceMappingURL=main.js.map

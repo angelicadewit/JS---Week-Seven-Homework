@@ -11,27 +11,27 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var SpecialCharactersValidator = function (_Validator) {
-    _inherits(SpecialCharactersValidator, _Validator);
+        _inherits(SpecialCharactersValidator, _Validator);
 
-    function SpecialCharactersValidator() {
-        _classCallCheck(this, SpecialCharactersValidator);
+        function SpecialCharactersValidator() {
+                _classCallCheck(this, SpecialCharactersValidator);
 
-        return _possibleConstructorReturn(this, (SpecialCharactersValidator.__proto__ || Object.getPrototypeOf(SpecialCharactersValidator)).apply(this, arguments));
-    }
-
-    _createClass(SpecialCharactersValidator, [{
-        key: "validate",
-        value: function validate() {
-            _get(SpecialCharactersValidator.prototype.__proto__ || Object.getPrototypeOf(SpecialCharactersValidator.prototype), "validate", this).call(this);
-
-            if (!this.$field.value.includes("!") || !this.$field.value.includes("@") || !this.$field.value.includes("#") || !this.$field.value.includes("$") || !this.$field.value.includes("%" || !this.$field.value.includes("^") || !this.$field.value.includes("&") || !this.$field.value.includes("*"))) {
-                this.errors.push("Needs to contain a");
-            }
-
-            this.showErrors();
+                return _possibleConstructorReturn(this, (SpecialCharactersValidator.__proto__ || Object.getPrototypeOf(SpecialCharactersValidator)).apply(this, arguments));
         }
-    }]);
 
-    return SpecialCharactersValidator;
+        _createClass(SpecialCharactersValidator, [{
+                key: "validate",
+                value: function validate() {
+                        _get(SpecialCharactersValidator.prototype.__proto__ || Object.getPrototypeOf(SpecialCharactersValidator.prototype), "validate", this).call(this);
+
+                        var characters = /^(?=.*[!@#$%^&*])/;
+
+                        if (!this.$field.value.match(characters)) {
+                                this.errors.push("Your " + this.$field.placeholder.toLowerCase() + " must contain: !@#$%^&*");
+                        }
+                }
+        }]);
+
+        return SpecialCharactersValidator;
 }(Validator);
 //# sourceMappingURL=SpecialCharactersValidator.js.map

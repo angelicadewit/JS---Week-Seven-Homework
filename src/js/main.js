@@ -9,3 +9,5 @@ let validatorNumYY = new NumberRangeValidator('[name=year]', 1900, 1999)
 
 let validatorMatchPassword = new MatchValidator('[name=verify-password','[name=password]')
 let validatorLengthPassword = new LengthRangeValidator('[name=password]', 4, 5)
+let validatorMixedCasePassword = new MixedCaseValidator('[name=password]')
+let validatorSpecialCharactersPassword = new SpecialCharactersValidator('[name=password]')
