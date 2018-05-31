@@ -54,7 +54,9 @@ var Validator = function () {
                 this.$field.style.borderColor = "red";
                 this.$errorContainer.innerHTML = "";
                 this.errors.forEach(function (error) {
-                    _this.$errorContainer.innerHTML += "<p>" + error + "</p>";
+                    if (!_this.$field.parentElement.innerHTML.includes(error)) {
+                        _this.$errorContainer.innerHTML += "<p>" + error + "</p>";
+                    }
                 });
             } else {
                 this.$field.style.borderColor = "green";

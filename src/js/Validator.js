@@ -42,7 +42,9 @@ class Validator{
             this.$field.style.borderColor = `red`;
             this.$errorContainer.innerHTML = "";
             this.errors.forEach((error) => {
+                if (!this.$field.parentElement.innerHTML.includes(error)){
                 this.$errorContainer.innerHTML += "<p>" + error + "</p>"
+                }
             })
        } else {
             this.$field.style.borderColor = `green`;
